@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}Užsakymai {{ block.super }}{% endblock title %}
+{% block content %}
+<h1>Užsakymai</h1>
+{% include "autoservisas/inc/pager_uzsakymai.html" %}
+{% if all_orderlines %}
+    <table class="orderlines-center">
+        <tr>
+            <th>Užsakymas</th>
+            <th>Statusas</th>
+            <th>Klientas</th>
+            <th>Paslauga</th>
+            <th>Paslaugos kaina</th>
+            <th>Kiekis</th>
+            <th>Papildomos išlaidos</th>
+            <th>Iš viso</th>
+            <th>Data</th>
+        </tr>
+        {% for orderline in orderlines %}
+            <tr class="data-row">
+                <td>{{ orderline.order.id }}</td>
+                <td class="{% if orderline.order.status == 0 %}
+                status-pending
+                {% elif orderline.order.status == 1 %}
+                status-in-progress
+                {% elif orderline.order.status == 2 %}
+                status-completed
+                {% elif orderline.order.status == 3 %}
+                status-cancelled
+                {% endif %}">
+                {{ orderline.order.get_status_display }}</td>
+                <td><a href="{% url 'car_detail' orderline.order.car.pk %}">{{ orderline.order.car.customer }}</a></td>
+                <td>{{ orderline.part_service.name }}</td>
+                <td>{{ orderline.part_service.price }}</td>
+                <td>{{ orderline.quantity }}</td>
+                <td>{{ orderline.price }}</td>
+                <td>{{ orderline.calculate_total }}</td>
+                <td>{{ orderline.order.date }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% else %}
+<p>Nerasta...</p>
+{% endif %}
+{% include "autoservisas/inc/pager_pages_uzsakymai.html" %}
+{% endblock content %}

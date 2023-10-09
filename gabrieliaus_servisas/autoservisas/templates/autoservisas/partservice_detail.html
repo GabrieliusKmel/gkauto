@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Paslauga {{ block.super }}{% endblock title %}
+{% block content %}
+<h1>{{ partservice.name }}</h1>
+    {{ partservice.about|safe }}
+<h2>Atsiliepimai</h2>
+{% if user.is_authenticated %}
+<form method="post" action="{{ request.path }}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <p><button type="submit">Komentuoti</button></p>
+</form>
+{% endif %}
+{% if partservice.reviews.all %}
+<ul class="nice-list">
+    {% for review in partservice.reviews.all %}
+        <li>
+            <h4>
+                <span>{{ review.reviewer }}</span>
+                <span class="float-right">{{ review.created_at}}</span>
+            </h4>
+            <em>{{ review.content }}</em>
+        </li>
+    {% endfor %}
+</ul>
+{% endif %}
+{% endblock content %}

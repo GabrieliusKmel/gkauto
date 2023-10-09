@@ -1,0 +1,13 @@
+<div class="pager">
+    {% if carmodels.has_other_pages %}
+        {% for page in carmodels.paginator.page_range %}
+            {% if page != carmodels.number %}
+                <a href="{{ request.path }}?query={{ request.GET.query }}&page={{ page }}">{{ page }}</a>
+            {% else %}
+                <span class="current">{{ page }}</span>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+</div>
+
+

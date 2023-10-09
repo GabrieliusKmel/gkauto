@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}AUTOSERVISAS{% endblock title %}</title>
+    <link rel="stylesheet" href="{% static "css/base_style.css" %}">
+    <style></style>
+</head>
+<body>
+    <header>
+        <ul class="nav">
+        <li class="logo"><a href="{% url "index" %}">Autoservisas</li>
+        <li><a href="{% url "index" %}">Namai</a></li>
+        <li><a href="{% url "carmodels" %}">Mašinos</a></li>
+        <li><a href="{% url "partservices" %}">Paslaugos</a></li>
+        <li><a href="{% url "orderlines" %}">Užsakymai</a></li>
+        <li class="spacer"></li>
+        {% if user.is_authenticated %}
+            <li><a href="{% url "cars_user" %}">Mano mašinos</a></li>
+            {% if user.is_superuser or user.is_staff %}
+                <li><a href="{% url "admin:index" %}">Admin</a></li>
+            {% endif %}
+            <li><a href="{% url "logout" %}">Atsijungti</a></li>
+        {% else %}
+            <li><a href="{% url "login" %}">Prisijungti</a></li>
+            <li><a href="{% url "signup" %}">Registracija</a></li>
+        {% endif %}
+        </ul>
+    </header>
+    <main>
+        {% if messages %}
+            {% for message in messages %}
+            <div class="box box-{{ message.tags }}">
+                {{ message}}
+            </div>
+            {% endfor %}
+        {% endif %}
+        {% block content %}
+        {% endblock content %}
+    </main>
+    <footer>
+        <p>&copy; 2023 Autoservisas by GK</p>
+    </footer>
+</body>
+</html>

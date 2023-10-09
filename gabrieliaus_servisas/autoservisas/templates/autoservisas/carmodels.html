@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Mašinos {{ block.super }}{% endblock title %}
+{% block content %}
+<h1>Mašinos, kurias tvarkome</h1>
+{% include "autoservisas/inc/pager_prev_next.html" %}
+<div class="card-list">
+    {% for carmodel in carmodels %}
+    <div class="card">
+        <a href="{% url 'partservices' %}">
+        <div class="card-content">
+            {% if carmodel.cover %}
+                <img class="car-cover" src="{{ carmodel.cover.url }}" alt="{{ carmodel.brand }} {{ carmodel.model }}">
+            {% else %}
+                <img class="car-cover" src="{% static 'img/default_cover.png' %}" alt="Default Car Image">
+            {% endif %}
+                <h4>{{ carmodel.brand }}</h4>
+                <h4>{{ carmodel.model }}</h4>
+                <h4>{{ carmodel.year }}</h4>
+        </div></a>
+    </div>
+    {% empty %}
+    <p>Nerasta...</p>
+    {% endfor %}
+</div>
+{% include "autoservisas/inc/pager_pages.html" %}
+{% endblock content %}

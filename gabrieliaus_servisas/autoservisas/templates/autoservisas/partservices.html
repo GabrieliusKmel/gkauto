@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Paslaugos {{ block.super }}{% endblock title %}
+{% block content %}
+<h1>Paslaugos, kurias atliekame</h1>
+<div class="service-cards">
+    {% for partservice in partservices.all %}
+    <div class="service-card">
+        <a href="{% url 'partservice_detail' partservice.pk %}">
+        <h2>{{ partservice.name }}</h2>
+        <p class="price">{{ partservice.price }}</p>
+    </div></a>
+    {% endfor %}
+</div>
+{% endblock content %}

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Mašina {{ block.super }}{% endblock title %}
+{% block content %}
+<h1>{{ car_detail.customer }} mašina</h1>
+{% if car_detail %}
+    <table class="car-center">
+        <tr>
+            <th>Ženklas</th>
+            <th>Modelis</th>
+            <th>Metai</th>
+            <th>Numeris</th>
+            <th>VIN</th>
+            <th>Spalva</th>
+        </tr>
+        <tr class="data-row">
+            <td>{{ car_detail.car_model.brand }}</td>
+            <td>{{ car_detail.car_model.model }}</td>
+            <td>{{ car_detail.car_model.year }}</td>
+            <td>{{ car_detail.plate }}</td>
+            <td>{{ car_detail.vin }}</td>
+            <td>{{ car_detail.color }}</td>
+        </tr>
+    </table>
+{% endif %}
+{% endblock content %}

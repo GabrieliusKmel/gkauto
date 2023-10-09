@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}Namai {{ block.super }}{% endblock title %}
+{% block content %}
+<h1>Sveiki atvykę į autoservisą!</h1>
+<p>Dabar servise turime:</p>
+<ul>
+    <li>mašinų modeliai: <span class="num">{{ num_carmodels }}</span></li>
+    <li>remontuojamų mašinų kiekis: <span class="num">{{ num_cars }}</span></li>
+    <li>atliekamų paslaugų kiekis: <span class="num">{{ num_partservice }}</span></li>
+    <li>užsakymų kiekis: <span class="num">{{ num_orderlines }}</span></li>
+</ul>
+<h2>Mašinų ženklai</h2>
+<ul>
+    {% for brand in car_model_brands %}
+      <li>{{ brand }}</li>
+    {% endfor %}
+</ul>
+<h2>Paslaugos</h2>
+<ul>
+    {% for part in partandservice %}
+      <li>{{ part.0 }} {{ part.1|floatformat:2 }}</li>
+    {% endfor %}
+</ul>
+{% endblock content %}

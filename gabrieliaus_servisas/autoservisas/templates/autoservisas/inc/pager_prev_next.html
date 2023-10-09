@@ -1,0 +1,18 @@
+<div class="pager">
+    <span class="current-page">
+    [psl. {{ carmodels.number }} iš {{ carmodels.paginator.num_pages }}]
+    </span>
+    {% if carmodels.has_previous %}
+        <a href="?page=1">Pirmas</a>
+        <a href="?page={{ carmodels.previous_page_number }}">Praeitas</a>
+    {% endif %}
+    {% if carmodels.has_next %}
+        <a href="?page={{ carmodels.next_page_number }}">Kitas</a>
+        <a href="?page={{ carmodels.paginator.num_pages }}">Paskutinis</a>
+    {% endif %}
+    <form method="GET" action="{% url 'carmodels' %}">
+        <input type="text" name="query" placeholder="Ieškokite mašinų..." value="{{ request.GET.query }}"class="search-input">
+        <button type="submit">&#128269;</button>
+    </form>
+</div>
+  

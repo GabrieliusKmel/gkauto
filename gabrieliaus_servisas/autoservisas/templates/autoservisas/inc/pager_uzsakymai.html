@@ -1,0 +1,17 @@
+<div class="pager">
+    <span class="current-page">
+    [psl. {{ orderlines.number }} iš {{ orderlines.paginator.num_pages }}]
+    </span>
+    {% if orderlines.has_previous %}
+        <a href="?page=1">Pirmas</a>
+        <a href="?page={{ orderlines.previous_page_number }}">Praeitas</a>
+    {% endif %}
+    {% if orderlines.has_next %}
+        <a href="?page={{ orderlines.next_page_number }}">Kitas</a>
+        <a href="?page={{ orderlines.paginator.num_pages }}">Paskutinis</a>
+    {% endif %}
+    <form method="GET" action="{% url 'orderlines' %}">
+        <input type="text" name="uzsakymai" placeholder="Ieškokite užsakymų..." value="{{ request.GET.query }}"class="search-input">
+        <button type="submit">&#128269;</button>
+    </form>
+</div>

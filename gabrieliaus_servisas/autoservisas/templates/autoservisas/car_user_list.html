@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}My Books from {{ block.super }}{% endblock title %}
+{% block content %}
+<h1>Mano mašinos</h1>
+{% if car_list %}
+    <table class="car-center">
+        <tr>
+            <th>Ženklas</th>
+            <th>Modelis</th>
+            <th>Metai</th>
+            <th>Numeris</th>
+            <th>VIN</th>
+            <th>Spalva</th>
+        </tr>
+    {% for car in car_list %}
+        <tr class="data-row">
+            <td>{{ car.car_model.brand }}</td>
+            <td>{{ car.car_model.model }}</td>
+            <td>{{ car.car_model.year }}</td>
+            <td>{{ car.plate }}</td>
+            <td>{{ car.vin }}</td>
+            <td>{{ car.color }}</td>
+        </tr>
+    {% endfor %}
+    </table>
+{% else %}
+    <p>No cars found.</p>
+{% endif %}
+{% endblock content %}
