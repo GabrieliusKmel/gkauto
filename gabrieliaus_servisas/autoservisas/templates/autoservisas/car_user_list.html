@@ -1,7 +1,7 @@
 {% extends "base.html" %}
-{% block title %}My Books from {{ block.super }}{% endblock title %}
+{% block title %}Mašinos {{ block.super }}{% endblock title %}
 {% block content %}
-<h1>Mano mašinos</h1>
+<h1>Mano mašinos<a class="float-right btn" href="{% url "car_add" %}">Pridėti mašiną</a></h1>
 {% if car_list %}
     <table class="car-center">
         <tr>
@@ -11,6 +11,7 @@
             <th>Numeris</th>
             <th>VIN</th>
             <th>Spalva</th>
+            <th>Veiksmai</th>
         </tr>
     {% for car in car_list %}
         <tr class="data-row">
@@ -20,10 +21,17 @@
             <td>{{ car.plate }}</td>
             <td>{{ car.vin }}</td>
             <td>{{ car.color }}</td>
+            <td>
+                <a href="{% url 'car_edit' car.pk %}" class="btn btn-info">Pakeisti</a> |
+                <a href="{% url 'car_delete' car.pk %}" class="btn btn-danger">Ištrinti</a> |
+                <a href="{% url 'create_partservice' car.id %}" class="btn btn-primary">Pridėti paslaugą</a>
+                <a href="{% url 'user_part_service_detail' car.id %}" class="btn btn-secondary">Paslaugos</a>
+            </td>
         </tr>
     {% endfor %}
     </table>
 {% else %}
-    <p>No cars found.</p>
+    <p>Mašinų nėra.</p>
 {% endif %}
 {% endblock content %}
+

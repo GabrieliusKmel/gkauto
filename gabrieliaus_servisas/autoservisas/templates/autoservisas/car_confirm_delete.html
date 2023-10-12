@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Patvirtinimas {{ block.super }}{% endblock title %}
+{% block content %}
+<h1>Patvirtinimas</h1>
+<p>Ar tikrai norite ištrinti šią mašiną "<strong>{{ car.car_model.brand }} {{ car.car_model.model }} {{ car.car_model.year }} {{ car.plate }}</strong>"?</p>
+<form method="post">
+    {% csrf_token %}
+    <p><button type="submit">Taip</button></p>
+</form>
+<p><a href="{% url 'cars_user' %}">Grįžti</a></p>
+{% endblock content %}
+

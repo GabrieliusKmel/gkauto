@@ -1,0 +1,247 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-10-11 15:23+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n % 10 == 1 && (n % 100 > 19 || n % 100 < "
+"11) ? 0 : (n % 10 >= 2 && n % 10 <=9) && (n % 100 > 19 || n % 100 < 11) ? "
+"1 : n % 1 != 0 ? 2: 3);\n"
+
+#: .\autoservisas\apps.py:7
+msgid "user profile"
+msgstr "userio profilis"
+
+#: .\autoservisas\models.py:11
+msgid "brand"
+msgstr "zenklas"
+
+#: .\autoservisas\models.py:12
+msgid "model"
+msgstr "modelis"
+
+#: .\autoservisas\models.py:13
+msgid "year"
+msgstr "metai"
+
+#: .\autoservisas\models.py:14
+msgid "cover"
+msgstr "nuotrauka"
+
+#: .\autoservisas\models.py:17 .\autoservisas\models.py:32
+msgid "carmodel"
+msgstr "masinosmodelis"
+
+#: .\autoservisas\models.py:18
+msgid "carmodels"
+msgstr "masinosmodeliai"
+
+#: .\autoservisas\models.py:29
+msgid "customer"
+msgstr "klientas"
+
+#: .\autoservisas\models.py:36
+msgid "plate"
+msgstr "numeris"
+
+#: .\autoservisas\models.py:37
+msgid "vin"
+msgstr "vinas"
+
+#: .\autoservisas\models.py:38
+msgid "color"
+msgstr "spalva"
+
+#: .\autoservisas\models.py:39
+msgid "owner"
+msgstr "savininkas"
+
+#: .\autoservisas\models.py:42 .\autoservisas\models.py:64
+msgid "car"
+msgstr "masina"
+
+#: .\autoservisas\models.py:43
+msgid "cars"
+msgstr "masinos"
+
+#: .\autoservisas\models.py:54
+msgid "pending"
+msgstr "laukiama"
+
+#: .\autoservisas\models.py:55
+msgid "in progress"
+msgstr "progrese"
+
+#: .\autoservisas\models.py:56
+msgid "completed"
+msgstr "pabaigta"
+
+#: .\autoservisas\models.py:57
+msgid "cancelled"
+msgstr "atsaukta"
+
+#: .\autoservisas\models.py:69
+msgid "date"
+msgstr "data"
+
+#: .\autoservisas\models.py:71
+msgid "status"
+msgstr "statusas"
+
+#: .\autoservisas\models.py:77
+msgid "serviceorder"
+msgstr "uzsakymas"
+
+#: .\autoservisas\models.py:78
+msgid "serviceorders"
+msgstr "uzsakymai"
+
+#: .\autoservisas\models.py:89
+msgid "name"
+msgstr "pavadinimas"
+
+#: .\autoservisas\models.py:90 .\autoservisas\models.py:150
+msgid "price"
+msgstr "kaina"
+
+#: .\autoservisas\models.py:91
+msgid "about"
+msgstr "apie"
+
+#: .\autoservisas\models.py:94 .\autoservisas\models.py:107
+msgid "partservice"
+msgstr "paslauga"
+
+#: .\autoservisas\models.py:95
+msgid "partservices"
+msgstr "paslaugos"
+
+#: .\autoservisas\models.py:113
+msgid "reviewer"
+msgstr "apzvalgininkas"
+
+#: .\autoservisas\models.py:117
+msgid "Content"
+msgstr "Turinys"
+
+#: .\autoservisas\models.py:119
+msgid "created at"
+msgstr "sukurta"
+
+#: .\autoservisas\models.py:124
+msgid "partservice review"
+msgstr "paslaugos atsiliepimas"
+
+#: .\autoservisas\models.py:125
+msgid "partservice reviews"
+msgstr ""
+
+#: .\autoservisas\models.py:138
+msgid "order"
+msgstr ""
+
+#: .\autoservisas\models.py:145
+msgid "part service id"
+msgstr ""
+
+#: .\autoservisas\models.py:149
+msgid "quantity"
+msgstr ""
+
+#: .\autoservisas\models.py:153
+msgid "orderline"
+msgstr ""
+
+#: .\autoservisas\models.py:154
+msgid "orderlines"
+msgstr ""
+
+#: .\autoservisas\models.py:179
+msgid "problem"
+msgstr ""
+
+#: .\autoservisas\templates\autoservisas\index.html:3
+#: .\autoservisas\templates\base.html:15
+msgid "namai"
+msgstr "home"
+
+#: .\autoservisas\templates\autoservisas\index.html:5
+msgid "sveiki atvykę į autoservisą"
+msgstr "welcome to our carservice"
+
+#: .\autoservisas\templates\autoservisas\index.html:6
+msgid "dabar servise turime:"
+msgstr "in our car service we have:"
+
+#: .\autoservisas\templates\autoservisas\index.html:8
+msgid "mašinų modeliai"
+msgstr "car models"
+
+#: .\autoservisas\templates\autoservisas\index.html:9
+msgid "remontuojamų mašinų kiekis"
+msgstr "cars we fix"
+
+#: .\autoservisas\templates\autoservisas\index.html:10
+msgid "atliekamų paslaugų kiekis"
+msgstr "services"
+
+#: .\autoservisas\templates\autoservisas\index.html:11
+msgid "užsakymų kiekis"
+msgstr "orders count"
+
+#: .\autoservisas\templates\autoservisas\index.html:13
+msgid "mašinų ženklai"
+msgstr "car brands"
+
+#: .\autoservisas\templates\autoservisas\index.html:19
+#: .\autoservisas\templates\base.html:17
+msgid "paslaugos"
+msgstr "services"
+
+#: .\autoservisas\templates\base.html:7
+msgid "AUTOSERVISAS"
+msgstr "CARSERVICE"
+
+#: .\autoservisas\templates\base.html:14 .\autoservisas\templates\base.html:45
+msgid "autoservisas"
+msgstr "carservice"
+
+#: .\autoservisas\templates\base.html:16
+msgid "mašinos"
+msgstr "cars"
+
+#: .\autoservisas\templates\base.html:18
+msgid "užsakymai"
+msgstr "orders"
+
+#: .\autoservisas\templates\base.html:21
+msgid "mano mašinos"
+msgstr "my cars"
+
+#: .\autoservisas\templates\base.html:26
+msgid "atsijungti"
+msgstr "logout"
+
+#: .\autoservisas\templates\base.html:28
+msgid "prisijungti"
+msgstr "login"
+
+#: .\autoservisas\templates\base.html:29
+msgid "registracija"
+msgstr "register"
+
+#: .\autoservisas\views.py:117
+msgid "Atsiliepimas pridėtas sėkmingai."
+msgstr "Review added sucessfully"

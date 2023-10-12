@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Registracija {{ block.super }}{% endblock title %}
+{% block content %}
+<h1>Registracija</h1>
+<form method="post" action="{{ request.path }}">
+    {% csrf_token %}
+    <p>
+        <label for="username">Vardas:</label>
+        <input id="username" type="text" name="username" value="{{ request.POST.username }}">
+    </p>
+    <p>
+        <label for="email">El. paštas:</label>
+        <input id="email" type="email" name="email" value="{{ request.POST.email }}">
+    </p>
+    <p>
+        <label for="password1">Slaptažodis:</label>
+        <input id="password1" type="password" name="password1">
+    </p>
+    <p>
+        <label for="password2">Pakartokite slaptažodį:</label>
+        <input id="password2" type="password" name="password2">
+    </p>
+    <p><button type="submit">Patvirtinti</button></p>
+</form>
+<p>Jei jau esate susikūręs vartotoją, galite 
+    <a href="{% url "login" %}"><b>prisijungti</b></a>.</p>
+{% endblock content %}

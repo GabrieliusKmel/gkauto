@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block title %}Atsijungimas iš {{ block.super }}{% endblock title %}
+{% block content %}
+<h1>Iki pasimatymo!</h1>
+<p>Jūs atsijungėte nuo sistemos. 
+    Galite ir vėl <a href="{% url "login" %}">prisijungti</a>, kada tik norite...</p>
+{% endblock content %}

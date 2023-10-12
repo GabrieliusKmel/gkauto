@@ -282,3 +282,6 @@ ul.nice-list li h4 {
     margin-top: 0rem;
     margin-bottom: 1rem;
 }
+form.inline-form {
+    display: inline-block;
+}

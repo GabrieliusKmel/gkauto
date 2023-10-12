@@ -1,21 +1,22 @@
 {% extends "base.html" %}
-{% block title %}Namai {{ block.super }}{% endblock title %}
+{% load i18n %}
+{% block title %}{% trans "namai"|title %} {{ block.super }}{% endblock title %}
 {% block content %}
-<h1>Sveiki atvykę į autoservisą!</h1>
-<p>Dabar servise turime:</p>
+<h1>{% trans "sveiki atvykę į autoservisą"|capfirst %}!</h1>
+<p>{% trans "dabar servise turime:"|capfirst %}</p>
 <ul>
-    <li>mašinų modeliai: <span class="num">{{ num_carmodels }}</span></li>
-    <li>remontuojamų mašinų kiekis: <span class="num">{{ num_cars }}</span></li>
-    <li>atliekamų paslaugų kiekis: <span class="num">{{ num_partservice }}</span></li>
-    <li>užsakymų kiekis: <span class="num">{{ num_orderlines }}</span></li>
+    <li>{% trans "mašinų modeliai" %}: <span class="num">{{ num_carmodels }}</span></li>
+    <li>{% trans "remontuojamų mašinų kiekis" %}: <span class="num">{{ num_cars }}</span></li>
+    <li>{% trans "atliekamų paslaugų kiekis" %}: <span class="num">{{ num_partservice }}</span></li>
+    <li>{% trans "užsakymų kiekis" %}: <span class="num">{{ num_orderlines }}</span></li>
 </ul>
-<h2>Mašinų ženklai</h2>
+<h2>{% trans "mašinų ženklai"|capfirst %}</h2>
 <ul>
     {% for brand in car_model_brands %}
       <li>{{ brand }}</li>
     {% endfor %}
 </ul>
-<h2>Paslaugos</h2>
+<h2>{% trans "paslaugos"|title %}</h2>
 <ul>
     {% for part in partandservice %}
       <li>{{ part.0 }} {{ part.1|floatformat:2 }}</li>

@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Pridėjimas {{ block.super }}{% endblock title %}
+{% block content %}
+<h1>Pridėti mašiną</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <p><button type="submit">Pridėti</button></p>
+</form>
+<p><a href="{% url 'cars_user' %}">Grįžti</a></p>
+{% endblock content %}

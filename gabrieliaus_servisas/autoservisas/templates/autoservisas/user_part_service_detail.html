@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Mašinos Paslaugos{{ block.super }}{% endblock title %}
+{% block content %}
+<h1>Paslaugos susijusios su {{ car.car_model.brand }} {{ car.car_model.model }}</h1>
+{% if partservices %}
+    <table class="car-center">
+        <tr>
+            <th>Paslaugos pavadinimas</th>
+            <th>Kaina</th>
+            <th>Problema</th>
+            <th>Veiksmai</th>  <!-- Add a column for actions -->
+        </tr>
+    {% for partservice in partservices %}
+        <tr class="data-row">
+            <td>{{ partservice.part_service.name }}</td>
+            <td>{{ partservice.part_service.price }}</td>
+            <td>{{ partservice.problem }}</td>
+            <td>
+                <a href="{% url 'carpartservice_update' partservice.pk %}" class="btn btn-danger">Atnaujinti</a>
+                <a href="{% url 'carpartservice_delete' partservice.pk %}" class="btn btn-danger">Ištrinti</a>
+            </td>
+        </tr>
+    {% endfor %}
+    </table>
+{% else %}
+    <p>Šiai mašinai nėra susijusių paslaugų.</p>
+{% endif %}
+{% endblock content %}
+

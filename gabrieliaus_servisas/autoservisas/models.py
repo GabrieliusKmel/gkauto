@@ -164,3 +164,18 @@ class OrderLine(models.Model):
     def calculate_total(self):
         total = self.quantity * self.price + self.part_service.price
         return total
+    
+class CarPartService(models.Model):
+    car = models.ForeignKey(
+        Car,
+        on_delete=models.CASCADE,
+        related_name='car_part_services',
+    )
+    part_service = models.ForeignKey(
+        PartService,
+        on_delete=models.CASCADE,
+        related_name='car_part_services',
+    )
+    problem = HTMLField(_("problem"), max_length=10000, default='', blank=True)
+    def __str__(self):
+        return f"{self.car} - {self.part_service} - {self.problem}"

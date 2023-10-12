@@ -1,32 +1,47 @@
 <!DOCTYPE html>
-{% load static %}
-<html lang="en">
+{% load static i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+{% get_available_languages as LANGUAGES %}
+<html lang="{{ LANGUAGE_CODE }}">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}AUTOSERVISAS{% endblock title %}</title>
+    <title>{% block title %}{% trans "AUTOSERVISAS" %}{% endblock title %}</title>
     <link rel="stylesheet" href="{% static "css/base_style.css" %}">
     <style></style>
 </head>
 <body>
     <header>
         <ul class="nav">
-        <li class="logo"><a href="{% url "index" %}">Autoservisas</li>
-        <li><a href="{% url "index" %}">Namai</a></li>
-        <li><a href="{% url "carmodels" %}">Mašinos</a></li>
-        <li><a href="{% url "partservices" %}">Paslaugos</a></li>
-        <li><a href="{% url "orderlines" %}">Užsakymai</a></li>
-        <li class="spacer"></li>
-        {% if user.is_authenticated %}
-            <li><a href="{% url "cars_user" %}">Mano mašinos</a></li>
-            {% if user.is_superuser or user.is_staff %}
-                <li><a href="{% url "admin:index" %}">Admin</a></li>
+            <li class="logo"><a href="{% url "index" %}">{% trans "autoservisas"|title %}</li>
+            <li><a href="{% url "index" %}">{% trans "namai"|title %}</a></li>
+            <li><a href="{% url "carmodels" %}">{% trans "mašinos"|title %}</a></li>
+            <li><a href="{% url "partservices" %}">{% trans "paslaugos"|title %}</a></li>
+            <li><a href="{% url "orderlines" %}">{% trans "užsakymai"|title %}</a></li>
+            <li class="spacer"></li>
+            {% if user.is_authenticated %}
+                <li><a href="{% url "cars_user" %}">{% trans "mano mašinos"|title %}</a></li>
+                <li><a href="{% url "profile" %}">{{ user.username }}</a></li>
+                {% if user.is_superuser or user.is_staff %}
+                    <li><a href="{% url "admin:index" %}">Admin</a></li>
+                {% endif %}
+                <li><a href="{% url "logout" %}">{% trans "atsijungti"|title %}</a></li>
+            {% else %}
+                <li><a href="{% url "login" %}">{% trans "prisijungti"|title %}</a></li>
+                <li><a href="{% url "signup" %}">{% trans "registracija"|title %}</a></li>
             {% endif %}
-            <li><a href="{% url "logout" %}">Atsijungti</a></li>
-        {% else %}
-            <li><a href="{% url "login" %}">Prisijungti</a></li>
-            <li><a href="{% url "signup" %}">Registracija</a></li>
-        {% endif %}
+            <li>
+                <form class="inline-form" action="{% url "set_language" %}" method="post">
+                    {% csrf_token %}
+                    <select name="language" onchange="this.form.submit();">
+                        {% for language in LANGUAGES %}
+                            <option value="{{ language.0 }}"
+                            {% if language.0 == LANGUAGE_CODE %}selected{% endif %}
+                            >{{ language.1 }}</option>
+                        {% endfor %} 
+                    </select>
+                </form>
+            </li>
         </ul>
     </header>
     <main>
@@ -41,7 +56,7 @@
         {% endblock content %}
     </main>
     <footer>
-        <p>&copy; 2023 Autoservisas by GK</p>
+        <p>&copy; 2023 {% trans "autoservisas"|title %} by GK</p>
     </footer>
 </body>
 </html>

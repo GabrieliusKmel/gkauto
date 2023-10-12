@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Ištrinti Paslaugą{{ block.super }}{% endblock title %}
+{% block content %}
+<div class="container">
+  <h2>Ištrinti Paslaugą</h2>
+  <p>Ar tikrai norite ištrinti šią paslaugą?</p>
+  <form method="post">
+    {% csrf_token %}
+    <p>Paslaugos pavadinimas: {{ object.part_service.name }}</p>
+    <p>Kaina: {{ object.part_service.price }}</p>
+    <p>Problema: {{ object.problem }}</p>
+    <button type="submit" class="btn btn-danger">Ištrinti</button>
+  </form>
+</div>
+{% endblock content %}

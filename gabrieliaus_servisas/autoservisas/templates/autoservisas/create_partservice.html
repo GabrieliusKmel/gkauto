@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}Pridėjimas {{ block.super }}{% endblock title %}
+{% block content %}
+<h1>Pridėti paslaugą mašinai "{{ car.plate }}"</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <p><button type="submit" class="btn btn-success">Pridėti paslaugą</button></p>
+</form>
+{% endblock content %}
